@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import CreateEvent from "./CreateEvent";
 import { FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const EventsList = () => {
   const [state, setState] = useState([]);
@@ -29,6 +30,19 @@ const EventsList = () => {
       });
   };
 
+  //let time = new Date().getHours() + ":" + new Date().getMinutes();
+  state.map((item) => {
+    let hour = Number(item.hour.replace(":", "").slice(0, 2));
+    let minute = Number(item.hour.replace(":", "").slice(2, 4));
+    let eventHour = new Date();
+    eventHour.setHours(hour, minute);
+    let eventDate = new Date(item.date);
+
+    if ((eventDate < new Date()) & (eventHour < new Date())) {
+      deleteEvent(item._id);
+    }
+  });
+
   return (
     <div>
       <div style={{ float: "left", margin: "55px" }}>
@@ -39,11 +53,13 @@ const EventsList = () => {
                 style={{ color: "red", cursor: "pointer", float: "right" }}
                 onClick={() => deleteEvent(event._id)}
               />
-              <h3>{event.name}</h3>
-              <p>{event.date}</p>
-              <p>{event.hour}</p>
-              <p>{event.restaurantName}</p>
-              <p>{event.restaurantAddress}</p>
+              <Link to={`events/${event._id}`}>
+                <h3>{event.name}</h3>
+                <p>{event.date}</p>
+                <p>{event.hour}</p>
+                <p>{event.restaurantName}</p>
+                <p>{event.restaurantAddress}</p>
+              </Link>
             </div>
           );
         })}

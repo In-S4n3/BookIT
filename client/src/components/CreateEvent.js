@@ -92,7 +92,7 @@ const CreateEvent = ({ getEvents }) => {
       .catch((error) => setError(error));
   };
 
-  console.log(state);
+  //console.log(state);
   //console.log(restaurantChoosen);
 
   return (
