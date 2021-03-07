@@ -7,8 +7,7 @@ const eventSchema = new Schema({
   hour: String,
   restaurantName: String,
   restaurantAddress: String,
-  guests: String,
-  owner: String
+  owner: { type: Schema.Types.ObjectId, ref: "User" }
 });
 
 const Event = mongoose.model("Event", eventSchema);

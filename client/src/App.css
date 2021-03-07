@@ -2,37 +2,491 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+/* NAVBAR  */
+.navbar-color {
+  background-color: #18181a;
+}
+
+.btn-primary {
+  margin-top: 5px;
+}
+
+.btn-success {
+  margin-top: 5px;
+}
+
+.backgroundImage {
+  background-image: url("./images/home-page4-picture.jpg");
+  background-size: cover;
+  background-position: right;
+  border: 2px solid #18181a;
+}
+
+.please-login-message {
+  background: linear-gradient(rgba(255, 255, 255, 0.767), rgba(255, 255, 255, 0.651)), url("./images/close-image.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 845px;
+  padding-top: 250px;
+  font-family: "Lobster";
+  font-size: 3.5em;
+}
+
+.not-invited {
+  background: linear-gradient(rgba(255, 255, 255, 0.767), rgba(255, 255, 255, 0.651)), url("./images/not-invited.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 845px;
+  padding-top: 250px;
+  font-family: "Lobster";
+  font-size: 3.5em;
+}
+
+.div-size {
+  height: 750px;
+}
+
+.div-right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.home-text {
+  text-align: justify;
+}
+
+.btn-events {
+  background-color: #07b86b;
+  color: #18181a;
+  padding: 10px 35px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.create-event-button {
+  background-color: #07b86b;
+  border-radius: 5px;
+  border: 2px solid black;
+  ;
+  display: inline-block;
+  cursor: pointer;
+  color: #18181a;
+  font-family: "McLaren";
+  font-size: 17px;
+  padding: 16px 31px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+
+.myButton:hover {
+  background-color: #5cbf2a;
+}
+
+.myButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.h1-home-text {
+  text-align: left;
+}
+
+.footer {
+  background-color: #07b86b;
+}
+
+.greenTitle {
+  color: #07b86b;
+  list-style-type: none;
+  font-size: 1.3rem;
+
+}
+
+.rightSideNav {
+  float: right
+}
+
+.saveDate {
+  width: 300px;
+  height: 300px;
+  background-color: white;
+}
+
+.saveDate>p {
+  font-weight: bold;
+  line-height: 1.5rem;
+  font-size: 1rem;
+}
+
+.socialMedia {
+  width: 300px;
+  height: 300px;
+  background-color: white;
+}
+
+.redTextFooter {
+  color: rgb(236, 69, 41);
+}
+
+.socialMediaIcons {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.socialMediaText {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navegacao {
+  height: 300px;
+}
+
+.navegacao>p {
+  color: rgb(124, 124, 124);
+  line-height: 1.5rem;
+}
+
+.loginDiv {
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/loginImage.jpg");
+  background-size: cover;
+  background-position: right;
+  border: 10px solid #18181a;
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  align-items: center;
+  height: 800px; */
+}
+
+.text-center {
+  display: flex;
+  justify-content: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.container-event-list {
+  height: 643px;
+}
+
+.creatingEventForm {
+  width: 20rem;
+}
+
+.cuisinesImage {
+  width: 50px;
+  height: 50px;
+}
+
+/* Tiago footer -----------------------------------------------------*/
+
+.tiago-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  padding: 45px 0;
+  box-sizing: border-box;
+  background-color: #18181a;
+}
+
+.tiago-inner-footer {
+  display: block;
+  margin: 0 auto 2px;
+  width: 1100px;
+  height: 90px;
+}
+
+.tiago-inner-footer .tiago-logo-container {
+  width: 35%;
+  float: left;
+  height: 100%;
+  display: block;
+}
+
+.tiago-inner-footer .tiago-logo-container img {
+  width: 90px;
+  height: auto;
+}
+
+.tiago-inner-footer .tiago-footer-third {
+  width: calc(21.66667% - 20px);
+  margin-right: 10px;
+  float: left;
+  height: 100%;
+}
+
+.tiago-inner-footer .tiago-footer-third:last-child {
+  margin-right: 0;
+}
+
+.tiago-inner-footer .tiago-footer-third h4 {
+  font-family: "arial";
+  font-size: 22px;
+  color: white;
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.tiago-inner-footer .tiago-footer-third a {
+  font-family: "arial";
+  font-size: 12px;
+  color: white;
+  display: block;
+  font-weight: 200;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.address {
+  color: white;
+  font-style: italic;
+  font-size: 12px;
+  padding-top: 10px;
+}
+
+.tiago-design {
+  border: 2px solid #18181a;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px 5px;
+  background-color: #fcfffd;
+}
+
+.tiago-design-create {
+  border: 2px solid #18181a;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 20px 5px;
+  background-color: #fcfffd;
+  height: 10rem
+}
+
+.container-tiago {
+  padding-top: 6rem;
+}
+
+.li-font {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: black;
+  list-style-type: none;
+  text-align: left;
+}
+
+.h3-create-event {
+  font-family: "Lobster", serif;
+  color: black;
+}
+
+h2 {
+  font-family: "Lobster", serif;
+  color: black;
+}
+
+.createDivCol {
+  display: flex;
+  justify-content: center;
+}
+
+.create-background {
+  background-color: #ebf2f2;
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/create-page-background.jpg");
+  background-size: 100% 845px;
+  background-repeat: no-repeat;
+  background-position: top;
+  height: 845px;
+}
+
+.zomato-background {
+  background-color: #ebf2f2;
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/zomato-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 845px;
+}
+
+.guests-background {
+  background-color: #ebf2f2;
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/guests-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 845px;
+}
+
+.sendEmail-background {
+  background-color: #ebf2f2;
+  background: linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url("./images/sendEmail-background.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 845px;
+}
+
+.zomatoResponse {
+  margin: 10px;
+  width: 18rem;
+}
+
+.formNameDate {
+  display: flex;
+  justify-content: center;
+  color: white;
+  background-color: #07b86b;
+}
+
+.namedate {
+  font-size: 1.3rem;
+}
+
+.formNameDateRow {
+  display: flex;
+  justify-content: center;
+}
+
+.zomatoImage {
+  width: 12rem;
+  height: 6rem;
+}
+
+.imageList {
+  width: 50px;
+  height: 50px
+}
+
+/*BUTTONS!!!!!!!!!*/
+
+.bouncy {
+  animation: bouncy 5s infinite linear;
+  position: relative;
+}
+
+@keyframes bouncy {
+  0% {
+    top: 0em
+  }
+
+  40% {
+    top: 0em
+  }
+
+  43% {
+    top: -0.9em
+  }
+
+  46% {
+    top: 0em
+  }
+
+  48% {
+    top: -0.4em
+  }
+
+  50% {
+    top: 0em
+  }
+
+  100% {
+    top: 0em;
+  }
+}
+
+.progress-button {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.progress-button button {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  width: 250px;
+  height: 70px;
+  border: 2px solid #07b86b;
+  border-radius: 40px;
+  background: transparent;
+  color: #07b86b;
+  letter-spacing: 1px;
+  font-size: 18px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+}
+
+.progress-button-refuse button {
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  width: 250px;
+  height: 70px;
+  border: 2px solid red;
+  border-radius: 40px;
+  background: transparent;
+  color: red;
+  letter-spacing: 1px;
+  font-size: 18px;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  -webkit-transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, color 0.3s, width 0.3s, border-width 0.3s, border-color 0.3s;
+}
+
+.progress-button button:hover {
+  background-color: #07b86b;
+  color: #fff;
+}
+
+.progress-button-refuse button:hover {
+  background-color: red;
+  color: #fff;
+}
+
+.progress-button button:focus {
+  outline: none;
+}
+
+.progress-button svg {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.progress-button svg path {
+  opacity: 0;
+  fill: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.progress-button svg.progress-circle path {
+  stroke: #07b86b;
+  stroke-width: 5;
 }
 
-.App-link {
-  color: #61dafb;
+.progress-button svg.checkmark path,
+.progress-button svg.cross path {
+  stroke: #fff;
+  stroke-linecap: round;
+  stroke-width: 4;
+  -webkit-transition: opacity 0.1s;
+  transition: opacity 0.1s;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.loading.progress-button button {
+  width: 70px;
+  /* make a circle */
+  border-width: 5px;
+  border-color: #ddd;
+  background-color: transparent;
+  color: #fff;
+}
+
+.loading.progress-button span {
+  -webkit-transition: opacity 0.15s;
+  transition: opacity 0.15s;
 }

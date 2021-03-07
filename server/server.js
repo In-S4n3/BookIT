@@ -53,6 +53,8 @@ app.use(
 );
 
 //routes
+const event = require("./routes/event-routes");
+app.use("/api", event);
 
 
 app.listen(process.env.PORT, () =>
