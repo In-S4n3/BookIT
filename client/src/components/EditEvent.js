@@ -1,37 +1,57 @@
-import React from 'react'
+import axios from "axios";
+import React, { useState } from "react";
 
-const EditEvent = (props) => {
+const EditEvent = ({ eventData, eventId }) => {
+  const [name, setEventName] = useState(eventData.name);
+  const [date, setEventDate] = useState(eventData.date);
+  const [hour, setEventHour] = useState(eventData.hour);
 
-let state = props.location.stateFromEventList?.state
-console.log(state);
-  
+  let chooseEventName = (e) => {
+    setEventName(e.target.value);
+  };
+
+  let chooseEventDate = (e) => {
+    setEventDate(e.target.value);
+  };
+
+  let chooseEventHour = (e) => {
+    setEventHour(e.target.value);
+  };
+
+  let handleFormEdit = (e) => {
+    e.preventDefault();
+    axios
+      .put(`http://localhost:5000/api/events/${eventId}`, { name, date, hour })
+      .then(() => console.log("Event updated"))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div>
-      <form >
+      <form onSubmit={handleFormEdit}>
         <label>Name of the Event</label>
         <br />
-        <input type="text"   />
+        <input type="text" value={name} onChange={chooseEventName} />
         <br />
         <br />
         <label>Date of the Event</label>
         <br />
-        <input type="date"   />
+        <input type="date" value={date} onChange={chooseEventDate} />
         <br />
         <br />
         <label>Time of the Event</label>
         <br />
-        <input type="time"   />
+        <input type="time" value={hour} onChange={chooseEventHour} />
         <br />
         <br />
-        {/* <h3>{restaurantChoosen?.name}</h3>
-        <p>{restaurantChoosen?.location?.address}</p>
-        {(location.length !== 0) & (cuisine.length !== 0) ? (
-          <input type="submit" value="Submit" />
-        ) : (
-          <div>Choose where and what you want to eat</div>
-        )} */}
+
+        <input type="submit" value="Submit" />
       </form>
       <br />
+      <p>
+        <strong>Note: </strong>to change the restaurant, please create a new
+        event.
+      </p>
       {/* {hideForm && (
         <form>
           <label>City of the Event: </label>
@@ -61,7 +81,7 @@ console.log(state);
           <br />
         </form>)} */}
     </div>
-  )
-}
+  );
+};
 
-export default EditEvent
+export default EditEvent;

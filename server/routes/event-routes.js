@@ -4,13 +4,15 @@ const router = express.Router();
 const Event = require("../models/Event-model");
 
 router.post("/events", (req, res, next) => {
-  const { name, date, hour, restaurantName, restaurantAddress } = req.body;
+  const { name, date, hour, restaurantName, restaurantAddress, priceForTwo, restaurantFoodImg } = req.body;
   Event.create({
     name,
     date,
     hour,
     restaurantName,
     restaurantAddress,
+    priceForTwo,
+    restaurantFoodImg,
     //owner
   })
     .then((response) => {
@@ -69,6 +71,5 @@ router.delete("/events/:id", (req, res, next) => {
       res.json(error);
     });
 });
-
 
 module.exports = router;

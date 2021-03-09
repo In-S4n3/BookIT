@@ -70,7 +70,9 @@ const CreateEvent = ({ getEvents }) => {
     e.preventDefault();
     let restaurantName = restaurantChoosen?.name;
     let restaurantAddress = restaurantChoosen?.location?.address;
-
+    let priceForTwo = restaurantChoosen.average_cost_for_two
+    let restaurantFoodImg = restaurantChoosen.featured_image
+    
     axios
       .post("http://localhost:5000/api/events", {
         name,
@@ -78,6 +80,8 @@ const CreateEvent = ({ getEvents }) => {
         hour,
         restaurantName,
         restaurantAddress,
+        priceForTwo,
+        restaurantFoodImg,
       })
       .then(() => {
         setEventName("");

@@ -7,6 +7,8 @@ const eventSchema = new Schema({
   hour: String,
   restaurantName: String,
   restaurantAddress: String,
+  priceForTwo: String,
+  restaurantFoodImg: String,
   owner: { type: Schema.Types.ObjectId, ref: "User" },
   created: {
     type: Date,

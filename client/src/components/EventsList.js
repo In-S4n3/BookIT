@@ -37,7 +37,6 @@ const EventsList = () => {
     let eventHour = new Date();
     eventHour.setHours(hour, minute);
     let eventDate = new Date(item.date);
-
     if ((eventDate < new Date()) & (eventHour < new Date())) {
       deleteEvent(item._id);
     }
