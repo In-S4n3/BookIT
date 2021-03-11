@@ -1,10 +1,9 @@
-import "./App.css";
+import "./App.scss";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import EventsList from "./components/EventsList";
-//import EditEvent from "./components/EditEvent";
-import EventDetails from "./components/EventDetails";
+import EventsList from "./components/EventList/EventsList";
+import EventDetails from "./components/EventDetails/EventDetails";
 
 function App() {
   return (

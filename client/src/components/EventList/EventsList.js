@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import CreateEvent from "./CreateEvent";
+import CreateEvent from "../CreatEvent/CreateEvent";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import "../EventList/EventList.scss"
 
 const EventsList = () => {
   const [state, setState] = useState([]);
@@ -43,27 +44,27 @@ const EventsList = () => {
   });
 
   return (
-    <div>
-      <div style={{ float: "left", margin: "55px" }}>
+    <div className="event-list-container">
+      <div className="event-list">
         {state.map((event) => {
           return (
-            <div key={event._id}>
+            <div key={event._id} className='single-event'>
               <FaTimes
                 style={{ color: "red", cursor: "pointer", float: "right" }}
                 onClick={() => deleteEvent(event._id)}
               />
-              <Link to={`events/${event._id}`}>
+              <Link to={`events/${event._id}`} >
                 <h3>{event.name}</h3>
-                <p>{event.date}</p>
-                <p>{event.hour}</p>
-                <p>{event.restaurantName}</p>
-                <p>{event.restaurantAddress}</p>
+                <p>Date: {event.date}</p>
+                <p>Hour: {event.hour}</p>
+                <p>Restaurant: {event.restaurantName}</p>
+                <p>Address: {event.restaurantAddress}</p>
               </Link>
             </div>
           );
         })}
       </div>
-      <div style={{ float: "right", margin: "55px" }}>
+      <div className="create-form">
         <CreateEvent getEvents={getAllEvents} />
       </div>
     </div>

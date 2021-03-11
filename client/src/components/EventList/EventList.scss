@@ -1,0 +1,18 @@
+.event-list-container {
+  padding-top: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items:center;
+}
+
+.single-event {
+  padding: 25px;
+  border: 2px solid rgb(186, 147, 238);
+  border-radius: 10px;
+}
+
+.create-form {
+  padding: 20px;
+  border: 2px solid rgb(224, 38, 110);
+  border-radius: 10px;
+}

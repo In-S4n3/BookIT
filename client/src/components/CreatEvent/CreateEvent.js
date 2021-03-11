@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Card } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 const CreateEvent = ({ getEvents }) => {
   const [state, setstate] = useState([]);
@@ -70,9 +72,9 @@ const CreateEvent = ({ getEvents }) => {
     e.preventDefault();
     let restaurantName = restaurantChoosen?.name;
     let restaurantAddress = restaurantChoosen?.location?.address;
-    let priceForTwo = restaurantChoosen.average_cost_for_two
-    let restaurantFoodImg = restaurantChoosen.featured_image
-    
+    let priceForTwo = restaurantChoosen.average_cost_for_two;
+    let restaurantFoodImg = restaurantChoosen.featured_image;
+
     axios
       .post("http://localhost:5000/api/events", {
         name,
@@ -163,19 +165,27 @@ const CreateEvent = ({ getEvents }) => {
         hideRestaurantes &&
         state.map((item) => (
           <div key={item.restaurant.id}>
-            <button
-              onClick={() => choosenRestaurant(item.restaurant)}
-              style={{
-                backgroundImage: `url(${item.restaurant.featured_image})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                color: "#d4f7ff",
-              }}
-            >
-              <h3>{item.restaurant.name}</h3>
-              <p>{item.restaurant.location.address}</p>
-              <p>{item.restaurant.average_cost_for_two}€</p>
-              <p>{item.restaurant.user_rating.aggregate_rating}</p>
+            <button onClick={() => choosenRestaurant(item.restaurant)}>
+              <Container>
+                <Row>
+                  <Col>
+                    <Card style={{ width: "18rem" }}>
+                      <Card.Img
+                        variant="top"
+                        src={`${item.restaurant.featured_image}`}
+                      />
+                      <Card.Body>
+                        <Card.Title>{item.restaurant.name}</Card.Title>
+                        <Card.Text>
+                          <p>{item.restaurant.location.address}</p>
+                          <p>{item.restaurant.average_cost_for_two}€</p>
+                          <p>{item.restaurant.user_rating.aggregate_rating}</p>
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                </Row>
+              </Container>
             </button>
           </div>
         ))
