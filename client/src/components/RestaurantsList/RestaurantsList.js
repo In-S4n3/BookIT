@@ -1,32 +1,37 @@
-import React from 'react'
-import { Card } from "react-bootstrap";
+import React from "react";
+import "../RestaurantsList/RestaurantsList.scss";
+import { Container, Row, Col } from "react-bootstrap";
 
-
-const RestaurantsList = ({state, choosenRestaurant}) => {
+const RestaurantsList = ({ state, choosenRestaurant }) => {
   return (
-    <div>
-      {state.map((item) => (
-          <div key={item.restaurant.id}>
-            <button onClick={() => choosenRestaurant(item.restaurant)}>
-              <Card style={{ width: "18rem" }}>
-                <Card.Img
-                  variant="top"
-                  src={`${item.restaurant.featured_image}`}
-                />
-                <Card.Body>
-                  <Card.Title>{item.restaurant.name}</Card.Title>
-                  <Card.Text>
-                    <p>{item.restaurant.location.address}</p>
-                    <p>{item.restaurant.average_cost_for_two}€</p>
-                    <p>{item.restaurant.user_rating.aggregate_rating}</p>
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </button>
-          </div>
-        ))}
-    </div>
-  )
-}
+    <Container>
+      <Row>
+        <div className="restaurantList-container">
+          {state.map((item) => (
+            <div key={item.restaurant.id} className="restaurantList-items">
+              <ul>
+                <button
+                  onClick={() => choosenRestaurant(item.restaurant)}
+                  style={{
+                    backgroundImage: `url(${item.restaurant.featured_image})`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
+                  className="restaurants"
+                >
+                  <h3>{item.restaurant.name}</h3>
 
-export default RestaurantsList
+                  <p>{item.restaurant.location.address}</p>
+                  <p>{item.restaurant.average_cost_for_two}€</p>
+                  <p>{item.restaurant.user_rating.aggregate_rating}</p>
+                </button>
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Row>
+    </Container>
+  );
+};
+
+export default RestaurantsList;
