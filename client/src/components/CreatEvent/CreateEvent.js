@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Card } from "react-bootstrap";
-import { Container, Row, Col } from "react-bootstrap";
+
+import RestaurantsList from "../RestaurantsList/RestaurantsList";
 
 const CreateEvent = ({ getEvents }) => {
   const [state, setstate] = useState([]);
@@ -163,32 +163,7 @@ const CreateEvent = ({ getEvents }) => {
         <div>Loading...</div>
       ) : (
         hideRestaurantes &&
-        state.map((item) => (
-          <div key={item.restaurant.id}>
-            <button onClick={() => choosenRestaurant(item.restaurant)}>
-              <Container>
-                <Row>
-                  <Col>
-                    <Card style={{ width: "18rem" }}>
-                      <Card.Img
-                        variant="top"
-                        src={`${item.restaurant.featured_image}`}
-                      />
-                      <Card.Body>
-                        <Card.Title>{item.restaurant.name}</Card.Title>
-                        <Card.Text>
-                          <p>{item.restaurant.location.address}</p>
-                          <p>{item.restaurant.average_cost_for_two}€</p>
-                          <p>{item.restaurant.user_rating.aggregate_rating}</p>
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                </Row>
-              </Container>
-            </button>
-          </div>
-        ))
+        <RestaurantsList state={state} choosenRestaurant={choosenRestaurant}/>
       )}
     </div>
   );

@@ -4,7 +4,7 @@ import axios from "axios";
 import CreateEvent from "../CreatEvent/CreateEvent";
 import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import "../EventList/EventList.scss"
+import "../EventList/EventList.scss";
 
 const EventsList = () => {
   const [state, setState] = useState([]);
@@ -48,12 +48,12 @@ const EventsList = () => {
       <div className="event-list">
         {state.map((event) => {
           return (
-            <div key={event._id} className='single-event'>
+            <div key={event._id} className="single-event">
               <FaTimes
                 style={{ color: "red", cursor: "pointer", float: "right" }}
                 onClick={() => deleteEvent(event._id)}
               />
-              <Link to={`events/${event._id}`} >
+              <Link to={`events/${event._id}`}>
                 <h3>{event.name}</h3>
                 <p>Date: {event.date}</p>
                 <p>Hour: {event.hour}</p>

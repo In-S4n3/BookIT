@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import FooterPage from "./FooterPage";
 
 class Home extends Component {
   constructor(props) {
@@ -41,7 +40,6 @@ class Home extends Component {
             </Link>
           </div>
         </div>
-        <FooterPage />
       </div>
     );
   }
