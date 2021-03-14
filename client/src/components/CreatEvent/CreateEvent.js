@@ -12,7 +12,7 @@ const CreateEvent = ({ getEvents }) => {
   const [name, setEventName] = useState("");
   const [date, setEventDate] = useState("");
   const [hour, setEventHour] = useState("");
-  const [restaurantChoosen, setrestaurantChoosen] = useState({});
+  const [restaurantChoosen, setrestaurantChoosen] = useState(null);
   const [hideForm, sethideForm] = useState(true);
   const [hideRestaurantes, setHideRestaurants] = useState(true);
 
@@ -98,72 +98,91 @@ const CreateEvent = ({ getEvents }) => {
       .catch((error) => setError(error));
   };
 
+  let renderForms = () => {
+    return (
+      <div>
+        <form onSubmit={createEvent}>
+          <label>Name of the Event</label>
+          <br />
+          <input type="text" value={name} onChange={chooseEventName} />
+          <br />
+          <br />
+          <label>Date of the Event</label>
+          <br />
+          <input type="date" value={date} onChange={chooseEventDate} />
+          <br />
+          <br />
+          <label>Time of the Event</label>
+          <br />
+          <input type="time" value={hour} onChange={chooseEventHour} />
+          <br />
+          <br />
+          <h3>{restaurantChoosen?.name}</h3>
+          <p>{restaurantChoosen?.location?.address}</p>
+          {(location.length !== 0) & (cuisine.length !== 0) ? (
+            <input type="submit" value="Submit" />
+          ) : (
+            <div>Choose where and what you want to eat</div>
+          )}
+        </form>
+        <br />
+        {hideForm && (
+          <form>
+            <label>City of the Event: </label>
+            <br />
+            <select type="text" value={location} onChange={chooseLocation}>
+              <option>Select a City</option>
+              <option value="82">Lisboa</option>
+              <option value="311">Porto</option>
+              <option value="61">London</option>
+              <option value="280">New York</option>
+              <option value="306">San Francisco</option>
+            </select>
+            <br />
+            <br />
+            <label>Type of Cuisine: </label>
+            <br />
+            <select type="text" value={cuisine} onChange={chooseCuisine}>
+              <option>Select a Cuisine</option>
+              <option value="portuguese">Portuguese</option>
+              <option value="brasilian">Brasilian</option>
+              <option value="italian">Italian</option>
+              <option value="mexican">Mexican</option>
+              <option value="american">American</option>
+              <option value="chinese">Chinese</option>
+              <option value="indian">Indian</option>
+            </select>
+            <br />
+          </form>
+        )}
+      </div>
+    );
+  };
+
+  let hideFormsOrNot = () => {
+    if ((cuisine.length === 0) & (restaurantChoosen === null)) {
+      return renderForms();
+    } else if (restaurantChoosen !== null) {
+      return renderForms();
+    }
+  };
   //console.log(state);
   //console.log(restaurantChoosen);
 
   return (
     <div>
-      <form onSubmit={createEvent}>
-        <label>Name of the Event</label>
-        <br />
-        <input type="text" value={name} onChange={chooseEventName} />
-        <br />
-        <br />
-        <label>Date of the Event</label>
-        <br />
-        <input type="date" value={date} onChange={chooseEventDate} />
-        <br />
-        <br />
-        <label>Time of the Event</label>
-        <br />
-        <input type="time" value={hour} onChange={chooseEventHour} />
-        <br />
-        <br />
-        <h3>{restaurantChoosen?.name}</h3>
-        <p>{restaurantChoosen?.location?.address}</p>
-        {(location.length !== 0) & (cuisine.length !== 0) ? (
-          <input type="submit" value="Submit" />
-        ) : (
-          <div>Choose where and what you want to eat</div>
-        )}
-      </form>
-      <br />
-      {hideForm && (
-        <form>
-          <label>City of the Event: </label>
-          <br />
-          <select type="text" value={location} onChange={chooseLocation}>
-            <option>Select a City</option>
-            <option value="82">Lisboa</option>
-            <option value="311">Porto</option>
-            <option value="61">London</option>
-            <option value="280">New York</option>
-            <option value="306">San Francisco</option>
-          </select>
-          <br />
-          <br />
-          <label>Type of Cuisine: </label>
-          <br />
-          <select type="text" value={cuisine} onChange={chooseCuisine}>
-            <option>Select a Cuisine</option>
-            <option value="portuguese">Portuguese</option>
-            <option value="brasilian">Brasilian</option>
-            <option value="italian">Italian</option>
-            <option value="mexican">Mexican</option>
-            <option value="american">American</option>
-            <option value="chinese">Chinese</option>
-            <option value="indian">Indian</option>
-          </select>
-          <br />
-        </form>
-      )}
+      {hideFormsOrNot()}
       <br />
       {error && <div>{error.message}</div>}
       {isLoaded & (state.length === 0) ? (
         <div>Loading...</div>
       ) : (
-        hideRestaurantes &&
-        <RestaurantsList state={state} choosenRestaurant={choosenRestaurant}/>
+        hideRestaurantes && (
+          <RestaurantsList
+            state={state}
+            choosenRestaurant={choosenRestaurant}
+          />
+        )
       )}
     </div>
   );
