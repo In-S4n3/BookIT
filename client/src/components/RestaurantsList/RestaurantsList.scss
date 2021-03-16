@@ -1,13 +1,12 @@
 .restaurantList-container {
+  width: 80%;
   display: flex;
   flex-wrap: wrap;
-}
-
-.restaurantList-items ul{
-  
+  justify-content: space-evenly;
 }
 
 .restaurants {
   width: 250px;
   height: 250px;
+  border-radius: 15px;
 }

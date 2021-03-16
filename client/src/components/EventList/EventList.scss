@@ -1,18 +1,41 @@
-.event-list-container {
-  padding-top: 5%;
+.event-list-page-container {
+  margin: 5%;
   display: flex;
   justify-content: space-around;
-  align-items:center;
+}
+
+.event-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .single-event {
-  padding: 25px;
-  border: 2px solid rgb(186, 147, 238);
+  width: 70%;
+  padding: 2%;
+  border: 2px solid rgb(53, 131, 221);
   border-radius: 10px;
+  flex-grow: 2;
 }
 
-.create-form {
-  padding: 20px;
-  border: 2px solid rgb(224, 38, 110);
+.single-event p {
+  color: rgb(37, 49, 54);
+}
+
+.single-event hr {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.single-event span {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  color: rgb(0, 102, 255);
+}
+
+.create-event {
+  display: flex;
+  border: 2px solid rgb(53, 131, 221);
   border-radius: 10px;
+  padding: 2%;
 }

@@ -28,20 +28,24 @@ const EventDetails = (props) => {
       <header
         style={{
           backgroundImage: `url(${event.restaurantFoodImg})`,
-          backgroundSize: "cover",
+          backgroundSize: "percentage",
+          backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
           height: "250px",
         }}
       ></header>
+      <br/>
       <div style={{ textAlign: "center" }}>
-        <h2>{event.name}</h2>
-        <h3>{event.restaurantName}</h3>
+        <h2 className="h2">{event.name}</h2>
+        <hr/>
+        <h3 className="h3">{event.restaurantName}</h3>
         <p>
           Average price for 2 persons: <strong>{event.priceForTwo}€</strong>
         </p>
         <p>Address: {event.restaurantAddress}</p>
+        <br/>
         {showEditForm && <EditEvent parentProps={props} eventData={event} eventId={props.match.params.id}/>}
-        <button onClick={showForm}>{!showEditForm ? 'Show' : 'Hide'} Edit Form</button>
+        <button className="btn btn-primary" onClick={showForm}>{!showEditForm ? 'Show' : 'Hide'} Edit Form</button>
       </div>
     </div>
   );

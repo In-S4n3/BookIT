@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import { Spinner, Alert } from "react-bootstrap";
+import "bulma/css/bulma.css";
 import RestaurantsList from "../RestaurantsList/RestaurantsList";
 
 const CreateEvent = ({ getEvents }) => {
@@ -52,7 +53,7 @@ const CreateEvent = ({ getEvents }) => {
   let zomatoApiCall = () => {
     axios({
       method: "GET",
-      url: `https://developers.zomato.com/api/v2.1/search?entity_id=${location}&entity_type=city&q=${cuisine}&count=12`,
+      url: `https://developers.zomato.com/api/v2.1/search?entity_id=${location}&entity_type=city&q=${cuisine}&count=16`,
       headers: {
         "user-key": process.env.REACT_APP_ZOMATO_API_KEY,
         "content-type": "application/json",
@@ -100,21 +101,36 @@ const CreateEvent = ({ getEvents }) => {
 
   let renderForms = () => {
     return (
-      <div>
+      <div className="create-form">
         <form onSubmit={createEvent}>
           <label>Name of the Event</label>
           <br />
-          <input type="text" value={name} onChange={chooseEventName} />
+          <input
+            className="input is-info is-rounded"
+            type="text"
+            value={name}
+            onChange={chooseEventName}
+          />
           <br />
           <br />
           <label>Date of the Event</label>
           <br />
-          <input type="date" value={date} onChange={chooseEventDate} />
+          <input
+            className="input is-info is-rounded"
+            type="date"
+            value={date}
+            onChange={chooseEventDate}
+          />
           <br />
           <br />
           <label>Time of the Event</label>
           <br />
-          <input type="time" value={hour} onChange={chooseEventHour} />
+          <input
+            className="input is-info is-rounded"
+            type="time"
+            value={hour}
+            onChange={chooseEventHour}
+          />
           <br />
           <br />
           <h3>{restaurantChoosen?.name}</h3>
@@ -130,29 +146,35 @@ const CreateEvent = ({ getEvents }) => {
           <form>
             <label>City of the Event: </label>
             <br />
-            <select type="text" value={location} onChange={chooseLocation}>
-              <option>Select a City</option>
-              <option value="82">Lisboa</option>
-              <option value="311">Porto</option>
-              <option value="61">London</option>
-              <option value="280">New York</option>
-              <option value="306">San Francisco</option>
-            </select>
+            <div className="select is-info is-rounded">
+              <select type="text" value={location} onChange={chooseLocation}>
+                <option>Select a City</option>
+                <option value="82">Lisboa</option>
+                <option value="311">Porto</option>
+                <option value="61">London</option>
+                <option value="280">New York</option>
+                <option value="306">San Francisco</option>
+              </select>
+            </div>
             <br />
             <br />
             <label>Type of Cuisine: </label>
             <br />
-            <select type="text" value={cuisine} onChange={chooseCuisine}>
-              <option>Select a Cuisine</option>
-              <option value="portuguese">Portuguese</option>
-              <option value="brasilian">Brasilian</option>
-              <option value="italian">Italian</option>
-              <option value="mexican">Mexican</option>
-              <option value="american">American</option>
-              <option value="chinese">Chinese</option>
-              <option value="indian">Indian</option>
-            </select>
-            <br />
+            <div className="select is-info is-rounded">
+              <select type="text" value={cuisine} onChange={chooseCuisine}>
+                <option>Select a Cuisine</option>
+                <option value="portuguese">Portuguese</option>
+                <option value="brasilian">Brasilian</option>
+                <option value="italian">Italian</option>
+                <option value="mexican">Mexican</option>
+                <option value="american">American</option>
+                <option value="chinese">Chinese</option>
+                <option value="indian">Indian</option>
+              </select>
+              <div className="icon is-left">
+                <i className="fas fa-globe"></i>
+              </div>
+            </div>
           </form>
         )}
       </div>
@@ -166,16 +188,17 @@ const CreateEvent = ({ getEvents }) => {
       return renderForms();
     }
   };
+
   //console.log(state);
   //console.log(restaurantChoosen);
 
   return (
-    <div>
+    <div className="createEvent-container">
       {hideFormsOrNot()}
       <br />
-      {error && <div>{error.message}</div>}
+      {error && <Alert variant="danger">{error.message}</Alert>}
       {isLoaded & (state.length === 0) ? (
-        <div>Loading...</div>
+        <Spinner animation="border" variant="primary" />
       ) : (
         hideRestaurantes && (
           <RestaurantsList
