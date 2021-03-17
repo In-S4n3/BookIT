@@ -1,7 +1,7 @@
 import "./App.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav } from "react-bootstrap";
 import EventsList from "./components/EventList/EventsList";
 import EventDetails from "./components/EventDetails/EventDetails";
@@ -26,7 +26,7 @@ function App() {
           render={(props) => <EventDetails {...props} />}
         />
       </Switch>
-      {/* <FooterPage /> */}
+      <FooterPage />
     </div>
   );
 }

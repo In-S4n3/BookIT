@@ -101,32 +101,29 @@ const CreateEvent = ({ getEvents }) => {
 
   let renderForms = () => {
     return (
-      <div className="create-form">
+      <div className="createEvent-container">
         <form onSubmit={createEvent}>
-          <label>Name of the Event</label>
-          <br />
+          <label className="label">Name of the Event</label>
           <input
-            className="input is-info is-rounded"
+            className="input is-rounded"
             type="text"
             value={name}
             onChange={chooseEventName}
           />
           <br />
           <br />
-          <label>Date of the Event</label>
-          <br />
+          <label className="label">Date of the Event</label>
           <input
-            className="input is-info is-rounded"
+            className="input is-rounded"
             type="date"
             value={date}
             onChange={chooseEventDate}
           />
           <br />
           <br />
-          <label>Time of the Event</label>
-          <br />
+          <label className="label">Time of the Event</label>
           <input
-            className="input is-info is-rounded"
+            className="input is-rounded"
             type="time"
             value={hour}
             onChange={chooseEventHour}
@@ -144,9 +141,8 @@ const CreateEvent = ({ getEvents }) => {
         <br />
         {hideForm && (
           <form>
-            <label>City of the Event: </label>
-            <br />
-            <div className="select is-info is-rounded">
+            <label className="label">City of the Event: </label>
+            <div className="select is-rounded">
               <select type="text" value={location} onChange={chooseLocation}>
                 <option>Select a City</option>
                 <option value="82">Lisboa</option>
@@ -158,9 +154,8 @@ const CreateEvent = ({ getEvents }) => {
             </div>
             <br />
             <br />
-            <label>Type of Cuisine: </label>
-            <br />
-            <div className="select is-info is-rounded">
+            <label className="label">Type of Cuisine: </label>
+            <div className="select is-rounded">
               <select type="text" value={cuisine} onChange={chooseCuisine}>
                 <option>Select a Cuisine</option>
                 <option value="portuguese">Portuguese</option>
@@ -171,9 +166,6 @@ const CreateEvent = ({ getEvents }) => {
                 <option value="chinese">Chinese</option>
                 <option value="indian">Indian</option>
               </select>
-              <div className="icon is-left">
-                <i className="fas fa-globe"></i>
-              </div>
             </div>
           </form>
         )}

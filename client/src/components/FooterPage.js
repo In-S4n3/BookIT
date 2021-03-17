@@ -35,7 +35,6 @@ class Footer extends Component {
             <h4>Resources</h4>
             <p>BootStrap</p>
             <p>React JS</p>
-            <p>Firebase</p>
             <p>Github</p>
           </div>
         </div>

@@ -1,12 +1,9 @@
 .restaurantList-container {
-  width: 80%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .restaurants {
-  width: 250px;
-  height: 250px;
   border-radius: 15px;
 }
+

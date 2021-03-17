@@ -1,6 +1,7 @@
-.App {
-  text-align: center;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+.App,
+#root>div {
+  height: 100vh;
+  width: 100vw;
 }
 
 /* NAVBAR  */
@@ -185,14 +186,13 @@
 /* Tiago footer -----------------------------------------------------*/
 
 .tiago-footer {
-  position: fixed;
-	bottom: 0;
+  bottom: 0;
   width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
   overflow: hidden;
-  padding: 45px 0;
+  padding: 40px 0;
   box-sizing: border-box;
   background-color: #18181a;
 }
@@ -200,19 +200,19 @@
 .tiago-inner-footer {
   display: block;
   margin: 0 auto 2px;
-  width: 1100px;
-  height: 90px;
+  width: 90%;
+  height: 75px;
 }
 
 .tiago-inner-footer .tiago-logo-container {
   width: 35%;
   float: left;
-  height: 100%;
+  height: 75%;
   display: block;
 }
 
 .tiago-inner-footer .tiago-logo-container img {
-  width: 90px;
+  width: 10%;
   height: auto;
 }
 
@@ -229,19 +229,18 @@
 
 .tiago-inner-footer .tiago-footer-third h4 {
   font-family: "arial";
-  font-size: 22px;
+  font-size: 2vh;
   color: white;
   display: block;
   width: 100%;
   margin-bottom: 20px;
 }
 
-.tiago-inner-footer .tiago-footer-third a {
+.tiago-inner-footer .tiago-footer-third p {
   font-family: "arial";
-  font-size: 12px;
-  color: white;
+  font-size: 1vh;
+  color: rgb(219, 216, 216);
   display: block;
-  font-weight: 200;
   width: 100%;
   margin-bottom: 5px;
 }
@@ -249,7 +248,7 @@
 .address {
   color: white;
   font-style: italic;
-  font-size: 12px;
+  font-size: 1.1vh;
   padding-top: 10px;
 }
 
@@ -267,7 +266,7 @@
   margin: 20px;
   padding: 20px 5px;
   background-color: #fcfffd;
-  height: 10rem
+  height: 8rem
 }
 
 .container-tiago {
@@ -303,7 +302,7 @@ h2 {
   background-size: 100% 845px;
   background-repeat: no-repeat;
   background-position: top;
-  height: 845px;
+  height: 20%;
 }
 
 .zomato-background {

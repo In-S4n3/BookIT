@@ -2,9 +2,9 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import CreateEvent from "../CreatEvent/CreateEvent";
-import { FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../EventList/EventList.scss";
+import "bulma/css/bulma.css";
 
 const EventsList = () => {
   const [state, setState] = useState([]);
@@ -58,31 +58,36 @@ const EventsList = () => {
           })
           .map((event) => {
             return (
-              <ul key={event._id}>
+              <div key={event._id}>
                 <div className="single-event">
-                  <FaTimes
-                    style={{ color: "red", cursor: "pointer", float: "right" }}
-                    onClick={() => deleteEvent(event._id)}
-                  />
-                  <Link to={`events/${event._id}`}>
-                    <h3 className="h3">{event.name}</h3>
-                    <hr />
-                    <p className="lead">
-                      <span>Date:</span> {event.date}
-                    </p>
-                    <p className="lead">
-                      <span>Hour:</span> {event.hour}
-                    </p>
-                    <p className="lead">
-                      <span>Restaurant:</span> {event.restaurantName}
-                    </p>
-                    <p className="lead">
-                      <span>Address:</span> {event.restaurantAddress}
-                    </p>
-                  </Link>
+                  <article className="message is-dark">
+                    <Link to={`events/${event._id}`}>
+                      <div className="message-header">
+                        <p>{event.name}</p>
+                        <button
+                          className="delete"
+                          aria-label="delete"
+                          onClick={() => deleteEvent(event._id)}
+                        ></button>
+                      </div>
+                    </Link>
+                    <div className="message-body">
+                      <p>
+                        <span>Date:</span> {event.date}
+                      </p>
+                      <p>
+                        <span>Hour:</span> {event.hour}
+                      </p>
+                      <p>
+                        <span>Restaurant:</span> {event.restaurantName}
+                      </p>
+                      <p>
+                        <span>Address:</span> {event.restaurantAddress}
+                      </p>
+                    </div>
+                  </article>
                 </div>
-                <br />
-              </ul>
+              </div>
             );
           })}
       </div>

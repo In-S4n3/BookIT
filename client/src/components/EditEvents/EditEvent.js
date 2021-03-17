@@ -52,7 +52,7 @@ const EditEvent = (props) => {
         <br />
         <br />
 
-        <input type="submit" value="Submit" />
+        <input className="btn btn-success" type="submit" value="Submit" />
       </form>
       <br />
       <p>
