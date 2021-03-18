@@ -22,11 +22,11 @@ class Home extends Component {
           className="div-size div-right"
         >
           <div>
-            <h1 className="h1-home-text">
+            <h1 className="h1-home-text title">
               Book an Event <br /> & <br /> Have a Good Time
             </h1>
             <br />
-            <p className="home-text">
+            <p className="home-text subtitle is-5">
               No more endeless chat groups to book an event, now you have
               BookIT. In 3 steps you enjoy time with your friends and family.
               BookIT, it is a platform which helps you invite people for a

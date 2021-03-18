@@ -1,7 +1,9 @@
 import axios from "axios";
 import React from "react";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import EditEvent from "../EditEvents/EditEvent";
+import "./EventDetails.scss"
 
 const EventDetails = (props) => {
   const [event, setEvent] = useState({});
@@ -34,18 +36,31 @@ const EventDetails = (props) => {
           height: "250px",
         }}
       ></header>
-      <br/>
-      <div style={{ textAlign: "center" }}>
+      <br />
+      <div className="details-container">
         <h2 className="h2">{event.name}</h2>
-        <hr/>
+        <hr />
         <h3 className="h3">{event.restaurantName}</h3>
         <p>
           Average price for 2 persons: <strong>{event.priceForTwo}€</strong>
         </p>
         <p>Address: {event.restaurantAddress}</p>
+        <br />
+        {showEditForm && (
+          <EditEvent
+            parentProps={props}
+            eventData={event}
+            eventId={props.match.params.id}
+          />
+        )}
+        <button className="btn btn-primary" onClick={showForm}>
+          {!showEditForm ? "Show" : "Hide"} Edit Form
+        </button>
         <br/>
-        {showEditForm && <EditEvent parentProps={props} eventData={event} eventId={props.match.params.id}/>}
-        <button className="btn btn-primary" onClick={showForm}>{!showEditForm ? 'Show' : 'Hide'} Edit Form</button>
+        <br/>
+        <Link to="/events">Events Page</Link>
+        <br/>
+        <br/>
       </div>
     </div>
   );

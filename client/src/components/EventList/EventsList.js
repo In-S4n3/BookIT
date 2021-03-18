@@ -61,16 +61,17 @@ const EventsList = () => {
               <div key={event._id}>
                 <div className="single-event">
                   <article className="message is-dark">
-                    <Link to={`events/${event._id}`}>
-                      <div className="message-header">
+                    <div className="message-header">
+                      <Link to={`events/${event._id}`}>
                         <p>{event.name}</p>
-                        <button
-                          className="delete"
-                          aria-label="delete"
-                          onClick={() => deleteEvent(event._id)}
-                        ></button>
-                      </div>
-                    </Link>
+                      </Link>
+                      <button
+                        className="delete"
+                        aria-label="delete"
+                        onClick={() => deleteEvent(event._id)}
+                      ></button>
+                    </div>
+
                     <div className="message-body">
                       <p>
                         <span>Date:</span> {event.date}

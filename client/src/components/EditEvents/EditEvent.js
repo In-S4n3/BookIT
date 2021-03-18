@@ -53,12 +53,14 @@ const EditEvent = (props) => {
         <br />
 
         <input className="btn btn-success" type="submit" value="Submit" />
+        <br/>
       </form>
       <br />
       <p>
         <strong>Note: </strong>to change the restaurant, please create a new
         event.
       </p>
+      <br/>
     </div>
   );
 };
