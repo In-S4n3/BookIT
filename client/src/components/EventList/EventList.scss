@@ -11,7 +11,12 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
+  background-color: rgb(255, 187, 0);
+  border: black 1px solid;
+}
 
+.single-event {
+  width: 35vw;
 }
 
 .single-event span {
@@ -28,7 +33,6 @@
   justify-content: center;
   align-items: center;
   border: black 1px solid;
-  border-radius: 15px;
   background-image: url("/images/guests-background.jpg");
   background-size: cover;
   background-position:center;

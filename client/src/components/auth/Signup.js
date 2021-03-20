@@ -51,6 +51,10 @@ const Signup = (props) => {
         Already have account?
         <Link to={"/login"}> Login</Link>
       </p>
+      <p>
+        Sign up with Facebook
+        <Link to={"/login-facebook"}> Facebook</Link>
+      </p>
     </div>
   );
 };

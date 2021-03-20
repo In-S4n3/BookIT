@@ -37,7 +37,7 @@ authRoutes.post("/signup", (req, res, next) => {
     }
 
     if (foundUser) {
-      res.status(400).json({ message: "Username taken. Choose another one." });
+      res.status(400).json({ message: "Email taken. Choose another one." });
       return;
     }
 

@@ -135,7 +135,7 @@ const CreateEvent = ({ getEvents }) => {
           {(location.length !== 0) & (cuisine.length !== 0) ? (
             <input type="submit" value="Submit" />
           ) : (
-            <div>Choose where and what you want to eat</div>
+            <div style={{color: "white"}}>Choose where and what you want to eat</div>
           )}
         </form>
         <br />

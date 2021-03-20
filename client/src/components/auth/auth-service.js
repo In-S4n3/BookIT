@@ -27,11 +27,9 @@ class AuthService {
   };
 
   login = (email, password) => {
-    return this.service
-      .post("/login", { email, password })
-      .then((response) => {
-        return response.data;
-      });
+    return this.service.post("/login", { email, password }).then((response) => {
+      return response.data;
+    });
   };
 
   logout = () => {

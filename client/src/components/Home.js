@@ -5,7 +5,7 @@ class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      item: []
+      item: [],
     };
   }
 
@@ -35,9 +35,15 @@ class Home extends Component {
           </div>
           <br />
           <div>
-            <Link to="/events" className="btn-events btn-events btn-lg">
-              <strong>BookIT Now</strong>
-            </Link>
+            {this.props.user ? (
+              <Link to="/events" className="btn-events btn-events btn-lg">
+                <strong>BookIT Now</strong>
+              </Link>
+            ) : (
+              <Link to="/login" className="btn-events btn-events btn-lg">
+                <strong>BookIT Now</strong>
+              </Link>
+            )}
           </div>
         </div>
       </div>
