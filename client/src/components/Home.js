@@ -1,26 +1,27 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { Alert } from "react-bootstrap";
 
 class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      item: [],
+      alert: false,
     };
   }
 
-  render() {
-    return (
-      <div>
-        <div
-          className="backgroundImage div-size div-left"
-          style={{ width: "50%", float: "left" }}
-        ></div>
+  showAlert = () => {
+    this.setState({
+      alert: true,
+    });
+  };
 
-        <div
-          style={{ width: "50%", float: "right" }}
-          className="div-size div-right"
-        >
+  render() {
+    console.log(this.state.alert);
+    return (
+      <div className="container_home">
+        <section className="home_img"></section>
+        <section className="titleAndButton">
           <div>
             <h1 className="h1-home-text title">
               Book an Event <br /> & <br /> Have a Good Time
@@ -40,15 +41,44 @@ class Home extends Component {
                 <strong>BookIT Now</strong>
               </Link>
             ) : (
-              <Link to="/login" className="btn-events btn-events btn-lg">
+              <button
+                onClick={this.showAlert}
+                className="btn-events btn-events btn-lg"
+              >
                 <strong>BookIT Now</strong>
-              </Link>
+              </button>
+            )}
+            <br />
+            <br />
+            {this.state.alert === true ? (
+              <div>
+                <Alert variant="warning">
+                  Please <a href="/login">Login</a> or{" "}
+                  <a href="/signup">Sign up</a> first.
+                </Alert>
+              </div>
+            ) : (
+              ""
             )}
           </div>
-        </div>
+        </section>
       </div>
     );
   }
 }
 
 export default Home;
+
+/*
+<div
+          className="backgroundImage div-size div-left"
+          style={{ width: "50%", float: "left" }}
+        ></div>
+
+        <div
+          style={{ width: "50%", float: "right" }}
+          className="div-size div-right"
+        >
+          
+        </div>
+*/

@@ -1,0 +1,32 @@
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1vh;
+  background: rgb(29, 27, 27);
+  box-sizing: border-box;
+}
+.items {
+  width: 150px;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 12px;
+}
+
+.items a {
+  color: rgb(135, 148, 147);
+  text-decoration: none;
+  
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.logoAndUser {
+  width: 300px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  p {
+    color:rgb(135, 148, 147)
+  }
+}

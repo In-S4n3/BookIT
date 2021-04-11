@@ -2,7 +2,8 @@ const User = require("../models/User-model");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcryptjs"); // !!!
 const passport = require("passport");
-const FacebookStrategy = require("passport-facebook").Strategy;
+//const FacebookStrategy = require("passport-facebook").Strategy;
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const chalk = require("chalk");
 
 passport.serializeUser((loggedInUser, cb) => {
@@ -45,27 +46,32 @@ passport.use(
   )
 );
 
-// Facebook strategy ========================
+// GOOGLE STRATEGY AUTHENTIFICATION ============
 passport.use(
-  new FacebookStrategy(
+  new GoogleStrategy(
     {
-      clientID: process.env.clientID,
-      clientSecret: process.env.clientSecret,
-      callbackUrl: "/auth/facebook/callback",
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: "/api/auth/google/callback",
     },
-    (acessToken, refreshToken, profile, done) => {
-      console.log(chalk.blue(JSON.stringify(profile)));
-      User.findOne({ googleId: profile.id })
+    (accessToken, refreshToken, profile, done) => {
+      // to see the structure of the data in received response:
+      console.log("Google account details:", profile);
+
+      User.findOne({ googleID: profile.id })
         .then((user) => {
           if (user) {
-            //Authenticate and persist in session
             done(null, user);
             return;
           }
 
-          User.create({ googleId: profile.id, username: profile.displayName })
+          User.create({
+            googleID: profile.id,
+            firstName: profile.name.givenName,
+            lastName: profile.name.familyName,
+            email: profile.emails[0].value,
+          })
             .then((newUser) => {
-              //Authenticate and persist in session
               done(null, newUser);
             })
             .catch((err) => done(err)); // closes User.create()

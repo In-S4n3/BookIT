@@ -10,12 +10,11 @@ const bcrypt = require("bcryptjs");
 
 // require the user model !!!!
 const User = require("../models/User-model");
-const { Strategy } = require("passport");
 
 // Signup ===========================================
 authRoutes.post("/signup", (req, res, next) => {
-  const email = req.body.email;
-  const password = req.body.password;
+  const { firstName, lastName, email, password } = req.body;
+  console.log('firstName',firstName, 'lastName',lastName, email, password );
 
   if (!email || !password) {
     res.status(400).json({ message: "Provide email and password" });
@@ -45,6 +44,8 @@ authRoutes.post("/signup", (req, res, next) => {
     const hashPass = bcrypt.hashSync(password, salt);
 
     const aNewUser = new User({
+      firstName: firstName,
+      lastName: lastName,
       email: email,
       password: hashPass,
     });
@@ -125,13 +126,21 @@ authRoutes.get("/loggedin", (req, res, next) => {
   res.status(403).json({ message: "Unauthorized" });
 });
 
-// autentificação com o facebook ===========================================
-authRoutes.get("/auth/facebook", passport.authenticate("facebook"));
+// ROUTES PARA A AUTH GOOGLE ==========================
 authRoutes.get(
-  "/auth/facebook/callback",
-  passport.authenticate("facebook", {
-    successRedirect: `http://localhost:5000/events`,
-    failureRedirect: `http://localhost:5000/login`
+  "/auth/google",
+  passport.authenticate("google", {
+    scope: [
+      "https://www.googleapis.com/auth/userinfo.profile",
+      "https://www.googleapis.com/auth/userinfo.email",
+    ],
+  })
+);
+authRoutes.get(
+  "/auth/google/callback",
+  passport.authenticate("google", {
+    successRedirect: "http://localhost:3000",
+    failureRedirect: "http://localhost:3000/login", // here you would redirect to the login page using traditional login approach
   })
 );
 
