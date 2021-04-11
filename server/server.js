@@ -34,27 +34,21 @@ app.use(express.json());
 // auth =====================================
 app.use(
   session({
-    secret: "some secret goes here",
+    secret: "ironducks jumping through the mountains",
     resave: true,
     saveUninitialized: true,
-    // cookie: {
-    //   sameSite: "none", //true, //the requester is on the same domain
-    //   secure: true, //false, //not using https
-    //   httpOnly: false, //true, //site on only on http
-    //   maxAge: 60000, //cookie time to live
-    // },
-    // rolling: true, //session gets refreshed
+    ttl: 60 * 60 * 24,
+    cookie: {
+      secure: process.env.NODE_ENV === "production",
+      sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
+      maxAge: 60000000,
+    },
   })
 );
+app.set("trust proxy", 1); // trust first proxy
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-// Socket.IO enables real-time, bidirectional and event-based communication.
-// It works on every platform, browser or device, focusing equally on reliability and speed.
-
-// let io = socketIo();
-// app.io = io;
 
 // ==========================================
 

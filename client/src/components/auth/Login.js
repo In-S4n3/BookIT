@@ -1,6 +1,8 @@
 import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "./auth-service";
+import "./Auth.scss";
+import "./Auth.scss"
 
 const Login = (props) => {
   const [email, setEmail] = useState("");
@@ -25,31 +27,40 @@ const Login = (props) => {
         //console.log("response from login component call", response);
         setEmail("");
         setPassword("");
-        props.history.push("/events")
+        props.history.push("/events");
       })
       .catch((error) => console.log(error));
   };
 
   return (
-    <div>
-      <form onSubmit={handleFormSubmit}>
-        <label>Email:</label>
+    <div className="login-container">
+      <form onSubmit={handleFormSubmit} className="form">
+        <label>Email: </label>
         <input type="text" name="email" value={email} onChange={handleEmail} />
-
-        <label>Password:</label>
+        <br />
+        <label>Password: </label>
         <input
           type="password"
           name="password"
           value={password}
           onChange={handlePassword}
         />
-
-        <input type="submit" value="login" />
+        <br />
+        <input type="submit" value="login" className="loginButton"/>
       </form>
-
+      <br />
       <p>
         You don't Have an account?
         <Link to={"/signup"}> Signup</Link>
+      </p>
+      <br />
+      <p>
+        <button className="googleAuth">
+          {" "}
+          <Link to={"/login-google"}>
+          Login with Google
+          </Link>
+        </button>
       </p>
     </div>
   );

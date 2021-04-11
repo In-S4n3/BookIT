@@ -58,8 +58,9 @@ const EventsList = () => {
           })
           .map((event) => {
             return (
-              <div key={event._id}>
+              <div key={event._id} className="event-list">
                 <div className="single-event">
+
                   <article className="message is-dark">
                     <div className="message-header">
                       <Link to={`events/${event._id}`}>
@@ -86,6 +87,7 @@ const EventsList = () => {
                         <span>Address:</span> {event.restaurantAddress}
                       </p>
                     </div>
+                    
                   </article>
                 </div>
               </div>

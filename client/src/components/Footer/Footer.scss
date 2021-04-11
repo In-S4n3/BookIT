@@ -1,0 +1,43 @@
+.tiago-footer {
+  height: 113px;
+  background: rgb(29, 27, 27);
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+.tiago-inner-footer {
+  display: flex;
+  justify-content: space-around;
+
+  .tiago-logo-container {
+    width: 33%;
+    padding: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    img {
+      padding-top: 25px;
+    }
+  }
+
+  address p {
+    padding-top: 40px;
+    width: 200px;
+    font-size: 10px;
+  }
+
+   p {
+    font-size: 10px;
+    color: rgb(49, 70, 69);
+  }
+
+  .tiago-footer-third {
+    padding-top: 20 px;
+    width: 33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    
+  }
+}

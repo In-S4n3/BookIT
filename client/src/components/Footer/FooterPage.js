@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import moduleName from './Footer.scss'
 
 class Footer extends Component {
   constructor(props) {
@@ -11,11 +11,11 @@ class Footer extends Component {
       <footer className="tiago-footer">
         <div className="tiago-inner-footer">
           <div className="tiago-logo-container">
-            <img src="/images/logo.png" alt="logo" />
+            <img src="/images/logo.png" alt="logo" width="55px" height="50px"/>
             <br />
             <address className="address">
-              IronHack, <br />
-              Heden Santa Apolónia, Lisbon, Portugal
+              <p>IronHack, <br />
+              Heden Santa Apolónia, Lisbon, Portugal</p>
             </address>
           </div>
           <div className="tiago-footer-third">
