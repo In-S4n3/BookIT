@@ -27,7 +27,7 @@ const Login = (props) => {
         //console.log("response from login component call", response);
         setEmail("");
         setPassword("");
-        props.history.push("/events");
+        props.history.push("/");
       })
       .catch((error) => console.log(error));
   };

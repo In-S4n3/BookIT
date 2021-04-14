@@ -58,38 +58,34 @@ const EventsList = () => {
           })
           .map((event) => {
             return (
-              <div key={event._id} className="event-list">
-                <div className="single-event">
+              <div key={event._id} className="single-event">
+                <article className="message is-dark">
+                  <div className="message-header">
+                    <Link to={`events/${event._id}`}>
+                      <p>{event.name}</p>
+                    </Link>
+                    <button
+                      className="delete"
+                      aria-label="delete"
+                      onClick={() => deleteEvent(event._id)}
+                    ></button>
+                  </div>
 
-                  <article className="message is-dark">
-                    <div className="message-header">
-                      <Link to={`events/${event._id}`}>
-                        <p>{event.name}</p>
-                      </Link>
-                      <button
-                        className="delete"
-                        aria-label="delete"
-                        onClick={() => deleteEvent(event._id)}
-                      ></button>
-                    </div>
-
-                    <div className="message-body">
-                      <p>
-                        <span>Date:</span> {event.date}
-                      </p>
-                      <p>
-                        <span>Hour:</span> {event.hour}
-                      </p>
-                      <p>
-                        <span>Restaurant:</span> {event.restaurantName}
-                      </p>
-                      <p>
-                        <span>Address:</span> {event.restaurantAddress}
-                      </p>
-                    </div>
-                    
-                  </article>
-                </div>
+                  <div className="message-body">
+                    <p>
+                      <span>Date:</span> {event.date}
+                    </p>
+                    <p>
+                      <span>Hour:</span> {event.hour}
+                    </p>
+                    <p>
+                      <span>Restaurant:</span> {event.restaurantName}
+                    </p>
+                    <p>
+                      <span>Address:</span> {event.restaurantAddress}
+                    </p>
+                  </div>
+                </article>
               </div>
             );
           })}

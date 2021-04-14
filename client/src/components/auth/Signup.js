@@ -37,7 +37,7 @@ const Signup = (props) => {
         setLastName("")
         setEmail("");
         setPassword("");
-        props.history.push("/events");
+        props.history.push("/");
       })
       .catch((error) => console.log(error));
   };
