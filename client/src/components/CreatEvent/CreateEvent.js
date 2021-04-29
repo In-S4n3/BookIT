@@ -4,8 +4,8 @@ import { Spinner, Alert } from "react-bootstrap";
 import "bulma/css/bulma.css";
 import RestaurantsList from "../RestaurantsList/RestaurantsList";
 
-const CreateEvent = ({ getEvents }) => {
-  const [state, setstate] = useState([]);
+const CreateEvent = ({ getEvents, handleCuisine }) => {
+  const [restaurantsFromApi, setRestaurantsFromApi] = useState([]);
   const [location, setLocation] = useState("");
   const [cuisine, setCuisine] = useState("");
   const [error, setError] = useState(null);
@@ -41,6 +41,7 @@ const CreateEvent = ({ getEvents }) => {
   useEffect(() => {
     if (cuisine.length !== 0) {
       zomatoApiCall();
+      handleCuisine(cuisine);
     }
   }, [cuisine]);
 
@@ -48,6 +49,7 @@ const CreateEvent = ({ getEvents }) => {
     setrestaurantChoosen(restaurant);
     sethideForm(false);
     setHideRestaurants(false);
+    handleCuisine("")
   };
 
   let zomatoApiCall = () => {
@@ -61,7 +63,7 @@ const CreateEvent = ({ getEvents }) => {
     }).then(
       (result) => {
         setIsLoaded(true);
-        setstate(result.data.restaurants);
+        setRestaurantsFromApi(result.data.restaurants);
       },
       (error) => {
         setError(error);
@@ -135,7 +137,9 @@ const CreateEvent = ({ getEvents }) => {
           {(location.length !== 0) & (cuisine.length !== 0) ? (
             <input type="submit" value="Submit" />
           ) : (
-            <div style={{color: "white"}}>Choose where and what you want to eat</div>
+            <div style={{ color: "white" }}>
+              Choose where and what you want to eat
+            </div>
           )}
         </form>
         <br />
@@ -181,20 +185,20 @@ const CreateEvent = ({ getEvents }) => {
     }
   };
 
-  //console.log(state);
+  //console.log(restaurantsFromApi);
   //console.log(restaurantChoosen);
 
   return (
-    <div className="createEvent-container">
+    <div className="form">
       {hideFormsOrNot()}
       <br />
       {error && <Alert variant="danger">{error.message}</Alert>}
-      {isLoaded & (state.length === 0) ? (
+      {isLoaded & (restaurantsFromApi.length === 0) ? (
         <Spinner animation="border" variant="primary" />
       ) : (
         hideRestaurantes && (
           <RestaurantsList
-            state={state}
+            restaurantsFromApi={restaurantsFromApi}
             choosenRestaurant={choosenRestaurant}
           />
         )

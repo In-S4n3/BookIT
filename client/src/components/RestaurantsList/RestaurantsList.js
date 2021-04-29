@@ -1,10 +1,10 @@
 import React from "react";
 import "../RestaurantsList/RestaurantsList.scss";
 
-const RestaurantsList = ({ state, choosenRestaurant }) => {
+const RestaurantsList = ({ restaurantsFromApi, choosenRestaurant }) => {
   return (
     <div className="restaurantList-container">
-      {state.map((item) => (
+      {restaurantsFromApi.map((item) => (
         <div key={item.restaurant.id} className="restaurantList-items">
           <ul>
             <button
@@ -16,8 +16,7 @@ const RestaurantsList = ({ state, choosenRestaurant }) => {
               }}
               className="restaurants"
             >
-              <h3>{item.restaurant.name}</h3>
-
+              <h3><span>{item.restaurant.name}</span></h3>
               <p>{item.restaurant.location.address}</p>
               <p>{item.restaurant.average_cost_for_two}€</p>
               <p>{item.restaurant.user_rating.aggregate_rating}</p>

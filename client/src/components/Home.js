@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { Alert } from "react-bootstrap";
+import FooterPage from "./Footer/FooterPage";
 
 class Home extends Component {
   constructor(props) {
@@ -38,7 +39,9 @@ class Home extends Component {
           <div>
             {this.props.user ? (
               <Link to="/events" className="btn-events btn-events btn-lg">
-                <strong>BookIT Now</strong>
+                <button className="btn-events btn-events btn-lg">
+                  <strong>BookIT Now</strong>
+                </button>
               </Link>
             ) : (
               <button
@@ -62,6 +65,7 @@ class Home extends Component {
             )}
           </div>
         </section>
+        <FooterPage />
       </div>
     );
   }

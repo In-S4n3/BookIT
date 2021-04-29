@@ -5,11 +5,11 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "./components/Home";
 import EventsList from "./components/EventList/EventsList";
 import EventDetails from "./components/EventDetails/EventDetails";
-import FooterPage from "./components/Footer/FooterPage";
-import NavbarPer from './components/Navbar/Navbar'
+import NavbarPer from "./components/Navbar/Navbar";
 import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import AuthService from "../src/components/auth/auth-service";
+import MainPage from "./components/MainPage/MainPage";
 
 function App(props) {
   const [user, setUser] = useState(null);
@@ -20,7 +20,7 @@ function App(props) {
     service
       .loggedin()
       .then((userLogedIn) => {
-        console.log(userLogedIn);
+        //console.log(userLogedIn);
         setUser(userLogedIn);
       })
       .catch((err) => console.log(err));
@@ -36,17 +36,16 @@ function App(props) {
     });
   };
 
-  
   return (
     <div>
-      <NavbarPer user={user} logout={logoutUser}/>
+      <NavbarPer user={user} logout={logoutUser} />
       <Switch>
         <Route
           exact
           path="/"
           render={(props) => <Home {...props} user={user} />}
         />
-        <Route exact path="/events" component={EventsList} />
+        <Route exact path="/events" component={MainPage} />
         <Route
           exact
           path="/events/:id"
@@ -62,7 +61,6 @@ function App(props) {
           }}
         />
       </Switch>
-      <FooterPage />
     </div>
   );
 }
