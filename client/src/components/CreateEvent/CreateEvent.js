@@ -3,6 +3,7 @@ import axios from "axios";
 import { Spinner, Alert } from "react-bootstrap";
 import "bulma/css/bulma.css";
 import RestaurantsList from "../RestaurantsList/RestaurantsList";
+import "../CreateEvent/CreateEvent.scss"
 
 const CreateEvent = ({ getEvents, handleCuisine }) => {
   const [restaurantsFromApi, setRestaurantsFromApi] = useState([]);
@@ -49,7 +50,7 @@ const CreateEvent = ({ getEvents, handleCuisine }) => {
     setrestaurantChoosen(restaurant);
     sethideForm(false);
     setHideRestaurants(false);
-    handleCuisine(null)
+    handleCuisine(null);
   };
 
   let zomatoApiCall = () => {
@@ -193,16 +194,18 @@ const CreateEvent = ({ getEvents, handleCuisine }) => {
       {hideFormsOrNot()}
       <br />
       {error && <Alert variant="danger">{error.message}</Alert>}
-      {isLoaded & (restaurantsFromApi.length === 0) ? (
-        <Spinner animation="border" variant="primary" />
-      ) : (
-        hideRestaurantes && (
-          <RestaurantsList
-            restaurantsFromApi={restaurantsFromApi}
-            choosenRestaurant={choosenRestaurant}
-          />
-        )
-      )}
+      <div className="spinner">
+        {isLoaded & (restaurantsFromApi.length === 0) ? (
+          <Spinner animation="border" variant="primary" />
+        ) : (
+          hideRestaurantes && (
+            <RestaurantsList
+              restaurantsFromApi={restaurantsFromApi}
+              choosenRestaurant={choosenRestaurant}
+            />
+          )
+        )}
+      </div>
     </div>
   );
 };

@@ -14,7 +14,7 @@ const User = require("../models/User-model");
 // Signup ===========================================
 authRoutes.post("/signup", (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
-  console.log('firstName',firstName, 'lastName',lastName, email, password );
+  //console.log('firstName',firstName, 'lastName',lastName, email, password );
 
   if (!email || !password) {
     res.status(400).json({ message: "Provide email and password" });
@@ -69,7 +69,7 @@ authRoutes.post("/signup", (req, res, next) => {
         // Send the user's information to the frontend
         // We can use also: res.status(200).json(req.user);
         res.status(200).json(aNewUser);
-        console.log(aNewUser);
+        //console.log(aNewUser);
       });
     });
   });

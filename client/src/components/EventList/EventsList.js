@@ -6,7 +6,6 @@ import "bulma/css/bulma.css";
 const EventsList = ({state, deleteEvent, cuisine}) => {
   
   let renderEvents = () => {
-    console.log(cuisine);
     return (
       <div className="event-list">
         {cuisine === null && state.sort(function (a, b) {

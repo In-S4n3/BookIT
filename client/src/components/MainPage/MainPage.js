@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import EventsList from "../EventList/EventsList";
-import CreateEvent from "../CreatEvent/CreateEvent";
+import CreateEvent from "../CreateEvent/CreateEvent";
 import "../MainPage/MainPage.scss";
 
 const MainPage = () => {
