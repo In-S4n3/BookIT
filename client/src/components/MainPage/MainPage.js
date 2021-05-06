@@ -3,13 +3,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import EventsList from "../EventList/EventsList";
 import CreateEvent from "../CreatEvent/CreateEvent";
-import "../MainPage/MainPage.scss"
+import "../MainPage/MainPage.scss";
 
 const MainPage = () => {
   const [state, setState] = useState([]);
-  const [cuisine, setCuisine] = useState("")
+  const [cuisine, setCuisine] = useState(null);
 
-  let handleCuisine = (value) => setCuisine({ value });
+  let handleCuisine = (value) => setCuisine(value);
 
   let getAllEvents = () => {
     axios
@@ -20,7 +20,7 @@ const MainPage = () => {
 
   useEffect(() => {
     getAllEvents();
-  }, []);
+  }, [cuisine]);
 
   let deleteEvent = (eventId) => {
     axios
@@ -48,10 +48,10 @@ const MainPage = () => {
   return (
     <div className="main-container">
       <div className="event-list">
-        <EventsList state={state} deleteEvent={deleteEvent} cuisine={cuisine}/>
+        <EventsList state={state} deleteEvent={deleteEvent} cuisine={cuisine} />
       </div>
       <div className="create-events-form">
-        <CreateEvent getEvents={getAllEvents} handleCuisine={handleCuisine}/>
+        <CreateEvent getEvents={getAllEvents} handleCuisine={handleCuisine} />
       </div>
     </div>
   );

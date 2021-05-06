@@ -49,7 +49,7 @@ const CreateEvent = ({ getEvents, handleCuisine }) => {
     setrestaurantChoosen(restaurant);
     sethideForm(false);
     setHideRestaurants(false);
-    handleCuisine("")
+    handleCuisine(null)
   };
 
   let zomatoApiCall = () => {

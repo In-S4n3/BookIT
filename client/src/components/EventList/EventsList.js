@@ -9,8 +9,7 @@ const EventsList = ({state, deleteEvent, cuisine}) => {
     console.log(cuisine);
     return (
       <div className="event-list">
-        {cuisine.length !== 0 ? <></> : state
-          .sort(function (a, b) {
+        {cuisine === null && state.sort(function (a, b) {
             if (a.date > b.date) {
               return 1;
             }
@@ -18,8 +17,7 @@ const EventsList = ({state, deleteEvent, cuisine}) => {
               return -1;
             }
             return 0;
-          })
-          .map((event) => {
+          }).map((event) => {
             return (
               <div key={event._id} className="single-event">
                 <article className="message is-dark">
