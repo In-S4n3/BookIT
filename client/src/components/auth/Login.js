@@ -2,7 +2,6 @@ import { React, useState } from "react";
 import { Link } from "react-router-dom";
 import AuthService from "./auth-service";
 import "./Auth.scss";
-import "./Auth.scss"
 
 const Login = (props) => {
   const [email, setEmail] = useState("");

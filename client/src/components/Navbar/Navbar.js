@@ -17,7 +17,7 @@ const Navbar = (props) => {
           <div className="auth">
             <section className="items">
               <div>
-                <a href="/logout">
+                <a href="/">
                   <strong onClick={() => props.logout()}>Logout</strong>
                 </a>
               </div>

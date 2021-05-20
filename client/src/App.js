@@ -1,9 +1,8 @@
 import "./App.scss";
 import { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Home from "./components/Home";
-import EventsList from "./components/EventList/EventsList";
 import EventDetails from "./components/EventDetails/EventDetails";
 import NavbarPer from "./components/Navbar/Navbar";
 import Login from "./components/auth/Login";
@@ -11,7 +10,7 @@ import Signup from "./components/auth/Signup";
 import AuthService from "../src/components/auth/auth-service";
 import MainPage from "./components/MainPage/MainPage";
 
-function App(props) {
+function App() {
   const [user, setUser] = useState(null);
 
   let service = new AuthService();
