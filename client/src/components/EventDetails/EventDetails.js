@@ -19,7 +19,7 @@ const EventDetails = (props) => {
 
   useEffect(() => {
     getSingleEvent();
-  }, []);
+  }, [getSingleEvent]);
 
   let showForm = () => {
     showEditForm ? setshowEditForm(false) : setshowEditForm(true);
